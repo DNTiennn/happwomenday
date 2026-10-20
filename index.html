@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc mừng 20/10 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Be+Vietnam+Pro:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Nền blob màu + emoji bay -->
+    <div class="bg">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+    </div>
+    <div id="floaters" aria-hidden="true"></div>
+    <canvas id="confetti"></canvas>
+
+    <main class="stage">
+        <section class="card" id="card">
+            <!-- Huy hiệu ngày -->
+            <div class="badge">
+                <span id="date">20/10</span>
+            </div>
+
+            <p class="sticker" id="sticker">🌸 Happy Women's Day 🌸</p>
+            <h1 class="title" id="title">Chúc mừng Ngày Phụ nữ Việt Nam</h1>
+            <p class="countdown" id="countdown"></p>
+
+            <!-- Hộp quà: bấm để mở lời chúc -->
+            <button class="gift" id="giftBtn" aria-label="Mở quà">
+        <span class="gift-emoji">🎁</span>
+        <span class="gift-text" id="giftText">Bấm để mở quà nè</span>
+      </button>
+
+            <!-- Lời chúc (ẩn cho tới khi mở quà) -->
+            <div class="reveal" id="reveal" hidden>
+                <p class="to">Gửi <strong id="recipient">Nguyễn Kim Ngân</strong> 💌</p>
+                <p class="message" id="message"></p>
+                <p class="from">— <span id="sender">By:DNTienn</span> 🫶</p>
+
+                <ul class="chips" id="chips"></ul>
+
+                <div class="actions">
+                    <button class="btn primary" id="moreBtn">✨ Chúc thêm</button>
+                    <button class="btn" id="boomBtn">🎉 Bắn pháo</button>
+                    <button class="btn" id="themeBtn">🎨 Đổi màu</button>
+
+                </div>
+            </div>
+        </section>
+
+        <p class="footer" id="footer">Made with 💖 • bấm vào card để thả tim</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

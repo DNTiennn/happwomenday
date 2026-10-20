@@ -1,0 +1,364 @@
+/* ===== MÀU CHỦ ĐỀ (sửa ở đây hoặc trong script.js > THEMES) ===== */
+
+:root {
+    --c1: #ff6bb5;
+    --c2: #a66bff;
+    --c3: #ffc46b;
+    --bg-a: #ffe3f1;
+    --bg-b: #e9deff;
+    --text: #3b1d4f;
+    --card: rgba(255, 255, 255, 0.55);
+    --card-border: rgba(255, 255, 255, 0.8);
+    --radius: 32px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--bg-a), var(--bg-b));
+    overflow-x: hidden;
+    transition: background 0.6s ease;
+}
+
+
+/* ===== NỀN ===== */
+
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.65;
+    animation: drift 14s ease-in-out infinite alternate;
+    transition: background 0.6s ease;
+}
+
+.b1 {
+    width: 380px;
+    height: 380px;
+    background: var(--c1);
+    top: -80px;
+    left: -80px;
+}
+
+.b2 {
+    width: 420px;
+    height: 420px;
+    background: var(--c2);
+    bottom: -120px;
+    right: -100px;
+    animation-delay: -4s;
+}
+
+.b3 {
+    width: 280px;
+    height: 280px;
+    background: var(--c3);
+    top: 45%;
+    left: 55%;
+    animation-delay: -8s;
+}
+
+@keyframes drift {
+    to {
+        transform: translate(40px, -30px) scale(1.15);
+    }
+}
+
+#floaters {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floater {
+    position: absolute;
+    bottom: -60px;
+    animation: floatUp linear forwards;
+    will-change: transform;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(var(--rot, 40deg));
+        opacity: 0;
+    }
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+
+/* ===== BỐ CỤC ===== */
+
+.stage {
+    position: relative;
+    z-index: 2;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px 24px;
+    gap: 16px;
+}
+
+.card {
+    position: relative;
+    width: min(560px, 100%);
+    padding: 56px 28px 32px;
+    text-align: center;
+    background: var(--card);
+    border: 2px solid var(--card-border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: 0 20px 60px rgba(120, 50, 160, 0.2);
+    animation: pop 0.8s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+}
+
+
+/* Huy hiệu ngày */
+
+.badge {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    padding: 10px 26px;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(166, 107, 255, 0.45);
+    animation: wiggle 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    50% {
+        transform: translateX(-50%) rotate(4deg) scale(1.05);
+    }
+}
+
+.sticker {
+    display: inline-block;
+    font-family: "Pacifico", cursive;
+    font-size: 1.1rem;
+    padding: 4px 14px;
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 14px;
+    transform: rotate(-2deg);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+.title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    line-height: 1.15;
+    background: linear-gradient(90deg, var(--c1), var(--c2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.countdown {
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+
+/* ===== HỘP QUÀ ===== */
+
+.gift {
+    margin-top: 24px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.gift-emoji {
+    font-size: 4.5rem;
+    display: inline-block;
+    animation: bounce 1.4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.15));
+}
+
+.gift:hover .gift-emoji {
+    animation-duration: 0.6s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-6deg);
+    }
+    50% {
+        transform: translateY(-14px) rotate(6deg);
+    }
+}
+
+
+/* ===== LỜI CHÚC ===== */
+
+.reveal {
+    margin-top: 24px;
+    animation: fadeUp 0.7s ease both;
+}
+
+.reveal[hidden] {
+    display: none;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+
+.to {
+    font-size: 1.15rem;
+}
+
+.message {
+    margin: 12px 0;
+    min-height: 5.5em;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.message::after {
+    content: "|";
+    margin-left: 2px;
+    animation: blink 0.8s steps(1) infinite;
+}
+
+.message.done::after {
+    content: "";
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.from {
+    font-family: "Pacifico", cursive;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+}
+
+.chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.chips li {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
+    animation: pop 0.5s both;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn.primary {
+    color: #fff;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+}
+
+.footer {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+
+/* Giảm chuyển động nếu người dùng yêu cầu */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+    }
+}
